@@ -15,7 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     password: pass_hashes,
                     email: email,
                     name: name,
-                    phone: phone
+                    phone: phone,
+                    token: ''
                 }
             })
             res.status(200).json({ message: 'Success Add User', data: register })
