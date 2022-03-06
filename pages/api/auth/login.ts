@@ -58,7 +58,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 }
             })
 
-            res.json({ message: userRefreshToken })
+            res.json({
+                message: "Success Login",
+                data: {
+                    token: userRefreshToken
+                }
+            })
         } catch (err) {
             res.status(500).json({ message: "Failed To Login", data: err })
         }
