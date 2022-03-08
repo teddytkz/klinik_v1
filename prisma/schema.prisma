@@ -32,8 +32,30 @@ model Roles {
 
 model Roles_group {
   id       Int   @id @default(autoincrement())
-  user     User  @relation(fields: [user_id], references: [id])
-  roles    Roles @relation(fields: [roles_id], references: [id])
   user_id  Int
   roles_id Int
+  user     User  @relation(fields: [user_id], references: [id])
+  roles    Roles @relation(fields: [roles_id], references: [id])
+}
+
+model Pasien {
+  id            Int      @id @default(autoincrement())
+  name          String   @db.VarChar(255)
+  tanggal_lahir DateTime @db.Date
+  no_telepon    String   @db.VarChar(255)
+  alamat        String   @db.Text
+  referral_id   Int
+  created_at    DateTime @default(now())
+  created_by    String   @db.VarChar(255)
+  updated_at    DateTime @updatedAt
+  referral      Referral @relation(fields: [referral_id], references: [id])
+}
+
+model Referral {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  description String   @db.Text
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  pasien      Pasien[]
 }
