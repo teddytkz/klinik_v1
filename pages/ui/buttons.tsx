@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Button, ButtonGroup, Card, CardBody, CardTitle, Row, Col } from 'reactstrap';
 
 const Buttons = () => {
-  const [cSelected, setCSelected] = useState([]);
+  const [cSelected, setCSelected] = useState([]) as any;
   const [rSelected, setRSelected] = useState(null);
 
-  const onRadioBtnClick = (vSelected) => {
+  const onRadioBtnClick = (vSelected: any) => {
     setRSelected(vSelected);
   };
 
-  const onCheckboxBtnClick = (selected) => {
+  const onCheckboxBtnClick = (selected: any) => {
     const index = cSelected.indexOf(selected);
     if (index < 0) {
       cSelected.push(selected);
