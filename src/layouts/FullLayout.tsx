@@ -3,7 +3,7 @@ import { Container } from "reactstrap";
 import Header from "./header/Header";
 import Sidebar from "./sidebars/vertical/Sidebar";
 
-const FullLayout = ({ children }) => {
+const FullLayout = ({ children }: { children: any }) => {
   const [open, setOpen] = React.useState(false);
   const showMobilemenu = () => {
     setOpen(!open);

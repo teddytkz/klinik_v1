@@ -56,7 +56,7 @@ const navigation = [
   },
 ];
 
-const Sidebar = ({ showMobilemenu }) => {
+const Sidebar = ({ showMobilemenu }: { showMobilemenu: any }) => {
   let curl = useRouter();
   const location = curl.pathname;
 

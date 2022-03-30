@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -17,7 +17,7 @@ import {
 import LogoWhite from "../../assets/images/logos/monsterlogowhite.svg";
 import user1 from "../../assets/images/users/user1.jpg";
 
-const Header = ({ showMobmenu }) => {
+const Header = ({ showMobmenu }: { showMobmenu: any }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 

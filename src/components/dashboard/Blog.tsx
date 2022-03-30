@@ -10,7 +10,7 @@ import {
 import PropTypes from "prop-types";
 import Image from "next/image";
 
-const Blog = ({ image, title, subtitle, text, color }) => {
+const Blog = ({ image, title, subtitle, text, color }: any) => {
   return (
     <Card>
       <Image alt="Card image cap" src={image} />
