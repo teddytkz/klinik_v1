@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 }
             })
             let dataPasien: any[] = []
-            getPasien.forEach((element) => {
+            getPasien.forEach((element: any) => {
                 dataPasien.push({
                     'nomor_rm': String(element.id).padStart(6, "0"),
                     'name': element.name,
