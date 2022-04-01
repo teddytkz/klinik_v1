@@ -11,10 +11,14 @@ import {
 } from "reactstrap";
 
 export async function getServerSideProps() {
-    const listUsers = await axios.get('http://localhost:3000/api/users/list_user')
+    // const listUsers = await axios.get('http://localhost:3000/api/users/list_user')
+
+    // console.log('this' + users)
+    const listUsers = await fetch('http://localhost:3000/api/users/list_user')
+    const users = await listUsers.json()
     return {
         props: {
-            dataUser: listUsers.data.data
+            dataUser: users.data
         }
     }
 }
@@ -61,7 +65,7 @@ const listUser: NextPage = (props: Props) => {
                         <tbody>
                             {
                                 dataUser.map((element: any, index: any) => (
-                                    <tr>
+                                    <tr key={element.email}>
                                         <td>{index + 1}</td>
                                         <td>{element.name}</td>
                                         <td>{element.email}</td>
