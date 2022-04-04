@@ -4,12 +4,13 @@ import "../styles/style.scss";
 import { useRouter } from 'next/router'
 import { AppProps } from "next/dist/shared/lib/router/router";
 
+
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
   const path = router.pathname.split("/")
   console.log(path[1])
   console.log(router.pathname)
-  if (path[1] === 'auth') {
+  if (path[1] === 'auth' || path[1] === '_error') {
     return (
       <>
         <Head>
