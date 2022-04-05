@@ -60,6 +60,55 @@ const navigation = [{
 },
 ];
 
+const navigasi = [
+  {
+    menu: 'Admin',
+    submenu: [{
+      title: 'Users',
+      href: '/auth/users',
+      icon: 'bi bi-people'
+    }, {
+      title: 'Users',
+      href: '/auth/users',
+      icon: 'bi bi-people'
+    }]
+  },
+  {
+    menu: 'Admin',
+    submenu: [{
+      title: 'Users',
+      href: '/auth/users',
+      icon: 'bi bi-people'
+    }, {
+      title: 'Users',
+      href: '/auth/users',
+      icon: 'bi bi-people'
+    }]
+  }, {
+    menu: 'Admin',
+    submenu: [{
+      title: 'Users',
+      href: '/auth/users',
+      icon: 'bi bi-people'
+    }, {
+      title: 'Users',
+      href: '/auth/users',
+      icon: 'bi bi-people'
+    }]
+  }, {
+    menu: 'Admin',
+    submenu: [{
+      title: 'Users',
+      href: '/auth/users',
+      icon: 'bi bi-people'
+    }, {
+      title: 'Users',
+      href: '/auth/users',
+      icon: 'bi bi-people'
+    }]
+  }
+]
+
 const Sidebar = ({ showMobilemenu }: { showMobilemenu: any }) => {
   let curl = useRouter();
   const location = curl.pathname;
@@ -76,8 +125,46 @@ const Sidebar = ({ showMobilemenu }: { showMobilemenu: any }) => {
         ></Button>
       </div>
       <div className="pt-4 mt-2">
+        {/* <Nav vertical className='sidebarNav'>
+          {
+            navigasi.map(navi => {
+              return (
+                // navi.menu
+                <div>
+                  <hr />
+                  <span className="ms-3 d-inline-block">{navi.menu}</span>
+                  <hr />
+                  <>
+                    {navi.submenu.map((submenu, index) => {
+                      return (
+                        <>
+                          <NavItem key={index} className="sidenav-bg">
+                            <Link href={submenu.href}>
+                              <a
+                                className={
+                                  location === submenu.href
+                                    ? "text-primary nav-link py-3"
+                                    : "nav-link text-secondary py-3"
+                                }
+                              >
+                                <i className={submenu.icon}></i>
+                                <span className="ms-3 d-inline-block">{submenu.title}</span>
+                              </a>
+                            </Link>
+                          </NavItem>
+                        </>
+                      )
+                    })}
+                  </>
+                </div>
 
-        {/* <Nav vertical className="sidebarNav">
+              )
+
+            })
+          }
+        </Nav> */}
+
+        <Nav vertical className="sidebarNav">
           {navigation.map((navi, index) => (
             <NavItem key={index} className="sidenav-bg">
               <Link href={navi.href}>
@@ -103,7 +190,7 @@ const Sidebar = ({ showMobilemenu }: { showMobilemenu: any }) => {
           >
             Upgrade To Pro
           </Button>
-        </Nav> */}
+        </Nav>
       </div>
     </div>
   );
