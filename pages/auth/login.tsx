@@ -2,11 +2,15 @@ import type { NextPage } from 'next'
 
 const Login: NextPage = () => {
     return (
-        <div>
-            <div className='container-fluid vh-100' style={{ marginTop: 5 + 'px' }}>
-                <div className='' style={{ marginTop: 50 + 'px' }}>
+        <div className='App backgroundContainer' style={{
+            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundSize: 'cover',
+            overflow: 'hidden',
+        }}>
+            <div className='container-fluid vh-100'>
+                <div className=''>
                     <div className='rounded d-flex justify-content-center'>
-                        <div className='col-md-4 col-sm-12 shadow-lg p-5 bg-light'>
+                        <div className='rounded col-md-4 col-sm-12 shadow-lg p-5 bg-light' style={{ marginTop: 50 + 'px' }}>
                             <div className='text-center'>
                                 <h3 className='text-primary'>Sign In</h3>
                             </div>
