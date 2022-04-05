@@ -16,12 +16,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             })
             let dataPasien: any[] = []
             getPasien.forEach((element: any) => {
+                let tanggal_lahir = new Date(element.tanggal_lahir)
+                let tgl_lahir_day = ('0' + tanggal_lahir.getDate()).slice(-2)
+                let tgl_lahir_month = ('0' + (tanggal_lahir.getMonth() + 1)).slice(-2)
+                let tgl_lahir_year = tanggal_lahir.getFullYear()
+                let tgl_lahir_full = tgl_lahir_year + '/' + tgl_lahir_month + '/' + tgl_lahir_day
                 dataPasien.push({
                     'nomor_rm': String(element.id).padStart(6, "0"),
                     'name': element.name,
                     'no_telepon': element.no_telepon,
                     'alamat': element.alamat,
-                    'tanggal_lahir': element.tanggal_lahir,
+                    'tanggal_lahir': tgl_lahir_full,
                     'referral_id': element.referral.id,
                     'referral_name': element.referral.name
                 })
