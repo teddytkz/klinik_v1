@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 if (!error) {
                     console.log(data)
                 } else {
-                    return res.status(401).json({ message: "Token Not Cant Verify" })
+                    return res.status(401).json({ message: "Token Cant Verify" })
                 }
             }
         )
