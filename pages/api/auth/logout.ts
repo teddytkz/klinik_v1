@@ -8,6 +8,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
             if (!userToken) {
                 return res.status(401).json({ message: "Token Not Found" })
             }
+            const removeToken = await res.setHeader('Set-Cookie', 'userToken=deleted; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT');
             const user = await prisma.user.findFirst({ where: { token: String(userToken) } })
             const deleteToken = await prisma.user.update({
                 where: {
