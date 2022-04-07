@@ -1,8 +1,12 @@
 import { prisma } from '../../../lib/prisma'
 import { NextApiRequest, NextApiResponse } from 'next'
+import authorization from '../../../middlewares/authorization'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'GET') {
+
+        const auth = await authorization(req, res)
+
         try {
             const getPasien = await prisma.pasien.findMany({
                 include: {
