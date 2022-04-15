@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "^3.10.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/cookie": "^0.4.1",
     "@types/jsonwebtoken": "^8.5.8",
@@ -22,7 +21,6 @@
     "formik": "^2.2.9",
     "jsonwebtoken": "^8.5.1",
     "next": "12.1.0",
-    "prisma": "^3.10.0",
     "react": "17.0.2",
     "react-apexcharts": "^1.4.0",
     "react-dom": "17.0.2",
@@ -31,10 +29,13 @@
     "simplebar-react": "^2.3.6"
   },
   "devDependencies": {
+    "@prisma/client": "^3.12.0",
     "@types/node": "17.0.21",
     "@types/react": "17.0.39",
+    "@types/reactstrap": "^8.7.2",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
+    "prisma": "^3.12.0",
     "typescript": "4.6.2"
   }
 }
