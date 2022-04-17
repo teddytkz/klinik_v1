@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import { useState } from 'react'
+import Router from 'next/router';
 
 const Login: NextPage = () => {
     const [fields, setFields] = useState({
@@ -22,8 +23,10 @@ const Login: NextPage = () => {
 
         }
 
-        const loginRes = await loginReq.json()
-        console.log(loginRes.message)
+        // const loginRes = await loginReq.json()
+        // console.log(loginRes.message)
+
+        Router.push('/dashboard');
     }
 
     function fieldHandler(e: any) {
