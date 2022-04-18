@@ -2,7 +2,7 @@ import { prisma } from '../../../lib/prisma'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === 'POST') {
+    if (req.method === 'GET') {
         const { userToken } = req.cookies
         try {
             if (!userToken) {
@@ -17,7 +17,8 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
                     token: ''
                 }
             })
-            return res.status(200).json({ message: "Logout" })
+            // return res.status(200).json({ message: "Logout" })
+            return res.redirect('/auth/login')
         } catch (err) {
             return res.status(500).json({ message: "Error", data: err })
         }
