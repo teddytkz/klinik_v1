@@ -1,9 +1,23 @@
-import type { NextPage } from 'next'
+import type { NextPage, NextPageContext } from 'next'
 import { Props } from 'react-apexcharts'
 import { Card, CardBody, CardTitle, Col, Row } from 'reactstrap'
 
-export async function getServerSideProps() {
-    const listPasien = await fetch('http://localhost:3000/api/pasien/list')
+export async function getServerSideProps(ctx: NextPageContext) {
+    const cookie = ctx.req?.headers.cookie
+    const token = await fetch('http://localhost:3000/api/auth/token', {
+        method: "post",
+        headers: {
+            cookie: cookie!
+        }
+    })
+    const tokens = await token.json()
+    const listPasien = await fetch('http://localhost:3000/api/pasien/list', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + tokens.data.token
+        },
+    })
     const listPasiens = await listPasien.json()
     return {
         props: {
@@ -20,7 +34,7 @@ const listPasien: NextPage = (props: Props) => {
                 <Card>
                     <CardTitle tag='h6' className='border-bottom p-3 mb-0'>
                         <i className="bi bi-person-fill"></i>
-                            List Pasien
+                        List Pasien
                     </CardTitle>
                     <CardBody>
                         <table className='table'>
