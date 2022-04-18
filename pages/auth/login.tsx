@@ -70,9 +70,7 @@ const Login: NextPage = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     )
 }
